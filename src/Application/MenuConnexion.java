@@ -92,6 +92,11 @@ public class MenuConnexion extends javax.swing.JFrame {
         caseMdp.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
 
         BtnConnexion.setText("Connexion");
+        BtnConnexion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnConnexionMouseClicked(evt);
+            }
+        });
         BtnConnexion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnConnexionActionPerformed(evt);
@@ -203,6 +208,11 @@ public class MenuConnexion extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_BtnQuitterMouseClicked
+
+    private void BtnConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnConnexionMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_BtnConnexionMouseClicked
 
     /**
      * @param args the command line arguments
