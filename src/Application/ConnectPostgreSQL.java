@@ -16,7 +16,7 @@ import java.util.Properties;
 public class ConnectPostgreSQL {
     
     /**
-     * La connection en cours
+     * La connection en cours 
      */
     public Connection con;
 
