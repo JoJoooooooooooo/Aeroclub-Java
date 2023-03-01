@@ -6,11 +6,7 @@
  */
 package Application;
 
-import java.awt.Desktop;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.*;
 
 /**
  *
@@ -193,27 +189,9 @@ public class MenuConnexion extends javax.swing.JFrame {
         // TODO add your handling code here:
         String nomID = caseNomID.getText();
         char [] Mdp = caseMdp.getPassword();
-        File file = new File("Accueil.java");
-        //first check if Desktop is supported by Platform or not
-        if(!Desktop.isDesktopSupported()){
-            System.out.println("Desktop is not supported");
-            return;
-        }
-        Desktop desktop = Desktop.getDesktop();
-        if(file.exists()) try {
-            desktop.open(file);
-        } catch (IOException ex) {
-            Logger.getLogger(MenuConnexion.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        //let's try to open PDF file
-        file = new File("Accueil.java");
-        if(file.exists()) try {
-            desktop.open(file);
-        } catch (IOException ex) {
-            Logger.getLogger(MenuConnexion.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        ConnectPostgreSQL ConnInstance = new ConnectPostgreSQL();
+        ConnInstance.main();
+        Connection con = ConnInstance.getcon();
     }//GEN-LAST:event_BtnConnexionActionPerformed
 
     private void BtnQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnQuitterActionPerformed

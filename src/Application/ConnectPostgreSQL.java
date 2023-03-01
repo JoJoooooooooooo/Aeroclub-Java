@@ -7,34 +7,51 @@ package Application;
 
 
 import java.sql.*;
+import java.util.Properties;
+
 /**
  *
  * @author joey.hossaert
  */
 public class ConnectPostgreSQL {
-      public static void main(String args[])
-  {
-    try
-    {
-      //étape 1: charger la classe de driver
-      Class.forName("org.postgresql.Driver");
-        //étape 3: créer l'objet statement
-        try ( //étape 2: créer l'objet de connexion
-                Connection conn = DriverManager.getConnection(
-                        "jdbc:postgresql://10.21.76.252:5432/aeroclub","appLourde","aero")) {
-            //étape 3: créer l'objet statement
-            Statement stmt = conn.createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM avions");
-            //étape 4: exécuter la requête
-            while (res.next()) {
-                System.out.println(res.getInt(1)+"  "+res.getString(2)
-                        +"  "+res.getString(3));
-            }
-            //étape 5: fermez l'objet de connexion
+    
+    /**
+     *
+     */
+    public Connection con;
+
+    /**
+     *
+     * @param args
+     */
+    public void main() {
+        try {
+            String url = "jdbc:postgresql://192.168.11.65/aeroclub";
+            Properties props = new Properties();
+            props.setProperty("user", "app");
+            props.setProperty("password", "ua95qI0eTN^Y8@99a8@a5pF3Tyw96");
+            this.con = DriverManager.getConnection(url, props);
+            System.out.print(this.con);
+        } catch (SQLException e) {
+            this.con = null;
+            System.err.println("Une erreur s'est produite lors de la tentative de connexion à la base de données : " + e.getMessage());
+            e.printStackTrace();
         }
     }
-    catch(ClassNotFoundException | SQLException e){ 
-      System.out.println(e);
+    
+    /**
+     *
+     * @return Connection
+     */
+    public Connection getcon() {
+        return this.con;
     }
-  }
+    
+    /**
+     *
+     * @return boolean
+     */
+    public boolean verifyConnection() {
+        return this.con == null ? false : true;
+    }
 }
