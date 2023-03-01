@@ -7,7 +7,6 @@
 package Application;
 
 import java.sql.*;
-
 /**
  *
  * @author joey.hossaert
@@ -192,6 +191,8 @@ public class MenuConnexion extends javax.swing.JFrame {
         ConnectPostgreSQL ConnInstance = new ConnectPostgreSQL();
         ConnInstance.main();
         Connection con = ConnInstance.getcon();
+        String hashedPassword = BCrypt.hashpw(Mdp, BCrypt.gensalt());
+        System.out.print(hashedPassword);
     }//GEN-LAST:event_BtnConnexionActionPerformed
 
     private void BtnQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnQuitterActionPerformed
