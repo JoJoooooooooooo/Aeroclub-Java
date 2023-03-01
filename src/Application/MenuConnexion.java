@@ -6,7 +6,11 @@
  */
 package Application;
 
+import java.awt.Desktop;
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -196,11 +200,19 @@ public class MenuConnexion extends javax.swing.JFrame {
             return;
         }
         Desktop desktop = Desktop.getDesktop();
-        if(file.exists()) desktop.open(file);
+        if(file.exists()) try {
+            desktop.open(file);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuConnexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         //let's try to open PDF file
         file = new File("Accueil.java");
-        if(file.exists()) desktop.open(file);
+        if(file.exists()) try {
+            desktop.open(file);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuConnexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_BtnConnexionActionPerformed
 
