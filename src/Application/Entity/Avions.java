@@ -1,7 +1,6 @@
 package Application.Entity;
 
 public class Avions {
-    public class Avion {
         private int numAvions;
         private String types;
         private double tauxDouble;
@@ -14,7 +13,7 @@ public class Avions {
         private String name;
         private String description;
         
-        public Avion(int numAvions, String types, double tauxDouble, double forfait1, double forfait2, double forfait3, double reductionSemaine, String immatriculation, String image, String name, String description) {
+        public Avions(int numAvions, String types, double tauxDouble, double forfait1, double forfait2, double forfait3, double reductionSemaine, String immatriculation, String image, String name, String description) {
             this.numAvions = numAvions;
             this.types = types;
             this.tauxDouble = tauxDouble;
@@ -118,4 +117,3 @@ public class Avions {
             this.description = description;
         }
     } 
-}
