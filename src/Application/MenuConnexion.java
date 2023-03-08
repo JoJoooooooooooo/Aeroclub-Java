@@ -8,6 +8,8 @@ package Application;
 
 import java.sql.*;
 
+import Application.Entity.Avions;
+
 /**
  *
  * @author joey.hossaert
@@ -189,9 +191,9 @@ public class MenuConnexion extends javax.swing.JFrame {
         // TODO add your handling code here:
         String nomID = caseNomID.getText();
         char [] Mdp = caseMdp.getPassword();
-        ConnectPostgreSQL ConnInstance = new ConnectPostgreSQL();
-        ConnInstance.main();
-        Connection con = ConnInstance.getcon();
+
+
+
     }//GEN-LAST:event_BtnConnexionActionPerformed
 
     private void BtnQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnQuitterActionPerformed
