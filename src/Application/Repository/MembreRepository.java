@@ -128,9 +128,6 @@ public class MembreRepository {
     }
 
 
-
-
-
     public boolean delete(int numMembre) {
         try {
             PreparedStatement stmt = connection.prepareStatement(
