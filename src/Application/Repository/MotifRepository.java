@@ -13,12 +13,13 @@ public class MotifRepository {
         this.connection = connection;
     }
 
-    public void create(Motif motif) throws SQLException {
+    public boolean create(Motif motif) throws SQLException {
         String sql = "INSERT INTO motifs (num_motif, motif) VALUES (?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, motif.getNumMotif());
             statement.setString(2, motif.getMotif());
-            statement.executeUpdate();
+            int rowsUpdated = statement.executeUpdate();
+            return rowsUpdated > 0;
         }
     }
 
@@ -36,20 +37,22 @@ public class MotifRepository {
         return null;
     }
 
-    public void update(Motif motif) throws SQLException {
+    public boolean update(Motif motif) throws SQLException {
         String sql = "UPDATE motifs SET motif = ? WHERE num_motif = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, motif.getMotif());
             statement.setInt(2, motif.getNumMotif());
-            statement.executeUpdate();
+            int rowsUpdated = statement.executeUpdate();
+            return rowsUpdated > 0;
         }
     }
 
-    public void delete(int numMotif) throws SQLException {
+    public boolean delete(int numMotif) throws SQLException {
         String sql = "DELETE FROM motifs WHERE num_motif = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, numMotif);
-            statement.executeUpdate();
+            int rowsUpdated = statement.executeUpdate();
+            return rowsUpdated > 0;
         }
     }
 

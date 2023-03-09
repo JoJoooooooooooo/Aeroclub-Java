@@ -120,7 +120,7 @@ public class Sequence {
         this.tauxInstructeur =  tauxInstructeur;
     }
 
-    public int getForfaitInitiation() {
+    public short getForfaitInitiation() {
         return forfaitInitiation;
     }
 
