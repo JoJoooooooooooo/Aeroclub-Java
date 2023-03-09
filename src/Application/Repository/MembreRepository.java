@@ -86,6 +86,51 @@ public class MembreRepository {
         return membres;
     }
 
+    
+    public Membre read(int numMembre) throws SQLException {
+        String query = "SELECT * FROM Membre WHERE numMembres = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, numMembre);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    String nom = rs.getString("nom");
+                    String prenom = rs.getString("prenom");
+                    String adresse = rs.getString("adresse");
+                    String codePostal = rs.getString("codePostal");
+                    String ville = rs.getString("ville");
+                    String tel = rs.getString("tel");
+                    String fax = rs.getString("fax");
+                    String email = rs.getString("email");
+                    int numBadge = rs.getInt("numBadge");
+                    int numQualif = rs.getInt("numQualif");
+                    String profession = rs.getString("profession");
+                    String lieuNaissance = rs.getString("lieuNaissance");
+                    String carteFederal = rs.getString("carteFederal");
+                    Date dateNaissance = rs.getDate("dateNaissance");
+                    Date dateAttestation = rs.getDate("dateAttestation");
+                    Date dateTheoriqueBB = rs.getDate("dateTheoriqueBB");
+                    Date dateTheoriquePPLA = rs.getDate("dateTheoriquePPLA");
+                    Date dateBB = rs.getDate("dateBB");
+                    Date datePPLA = rs.getDate("datePPLA");
+                    String numeroBB = rs.getString("numeroBB");
+                    String numeroPPLA = rs.getString("numeroPPLA");
+                    Date dateInscription = rs.getDate("dateInscription");
+                    String password = rs.getString("password");
+                    return new Membre(numMembre, nom, prenom, adresse, codePostal, ville, tel, fax, email, numBadge, numQualif, profession, lieuNaissance, carteFederal, dateNaissance, dateAttestation, dateTheoriqueBB, dateTheoriquePPLA, dateBB, datePPLA, numeroBB, numeroPPLA, dateInscription, password);
+                } else {
+                    return null;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Error reading member: " + e.getMessage());
+            return null;
+        }
+    }
+
+
+
+
+
     public boolean delete(int numMembre) {
         try {
             PreparedStatement stmt = connection.prepareStatement(

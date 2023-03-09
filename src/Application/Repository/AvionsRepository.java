@@ -34,7 +34,7 @@ public class AvionsRepository {
     }
 
     // Read operation
-    public Avions getAvions(int numAvions) throws SQLException {
+    public Avions read(int numAvions) throws SQLException {
         String query = "SELECT * FROM avions WHERE num_avions = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
