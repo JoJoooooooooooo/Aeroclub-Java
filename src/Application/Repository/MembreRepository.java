@@ -13,7 +13,7 @@ public class MembreRepository {
         this.connection = connection;
     }
 
-    public boolean createMembre(Membre membre) throws SQLException {
+    public boolean create(Membre membre) throws SQLException {
         String sql = "INSERT INTO membres (nom, prenom, adresse, code_postal, ville, tel, fax, email, num_badge, num_qualif, profession, lieu_naissance, carte_federal, date_naissance, date_attestation, date_theorique_bb, date_theorique_ppla, date_bb, date_ppla, numero_bb, numero_ppla, date_inscription, password) " +
                      "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -48,7 +48,7 @@ public class MembreRepository {
         }
     }
 
-    public List<Membre> readAllMembres() throws SQLException {
+    public List<Membre> list() throws SQLException {
         List<Membre> membres = new ArrayList<>();
         String query = "SELECT * FROM Membre";
         try (Statement stmt = connection.createStatement();
@@ -86,7 +86,7 @@ public class MembreRepository {
         return membres;
     }
 
-    public boolean deleteMembre(int numMembre) {
+    public boolean delete(int numMembre) {
         try {
             PreparedStatement stmt = connection.prepareStatement(
                 "DELETE FROM membres WHERE numMembres = ?");
@@ -100,7 +100,7 @@ public class MembreRepository {
     }
 
 
-    public boolean updateMembre(Membre membre) throws SQLException {
+    public boolean update(Membre membre) throws SQLException {
         String sql = "UPDATE membres SET nom = ?, prenom = ?, adresse = ?, code_postal = ?, ville = ?, tel = ?, fax = ?, email = ?, num_badge = ?, num_qualif = ?, profession = ?, lieu_naissance = ?, carte_federal = ?, date_naissance = ?, date_attestation = ?, date_theorique_bb = ?, date_theorique_ppla = ?, date_bb = ?, date_ppla = ?, numero_bb = ?, numero_ppla = ?, date_inscription = ?, password = ? WHERE numMembres = ?";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, membre.getNom());
