@@ -196,8 +196,8 @@ public class MenuConnexion extends javax.swing.JFrame {
         // TODO add your handling code here:
         String nomID = caseNomID.getText();
         char [] Mdp = caseMdp.getPassword();
-        MenuConnexion.java.dispose();
-        Accueil.java.setVisible(true);
+            ConnectPostgreSQL connection = new ConnectPostgreSQL();
+            Connection conn = connection.getcon();
 
 
 
