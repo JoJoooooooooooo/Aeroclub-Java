@@ -77,7 +77,7 @@ public class MenuConnexion extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Nom d'utilisateur :");
+        jLabel2.setText("E-mail");
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
@@ -196,6 +196,7 @@ public class MenuConnexion extends javax.swing.JFrame {
         // TODO add your handling code here:
         String nomID = caseNomID.getText();
         char [] Mdp = caseMdp.getPassword();
+        Accueil.java.setVisible(true);
 
 
 
