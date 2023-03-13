@@ -6,9 +6,12 @@
  */
 package Application;
 
-import java.sql.*;
+import Application.Repository.MembreRepository;
+import at.favre.lib.crypto.bcrypt.BCrypt;
+import java.nio.charset.StandardCharsets;
+import java.util.Map;
+import static java.util.Objects.hash;
 
-import Application.Entity.Avions;
 
 /**
  *
@@ -193,14 +196,13 @@ public class MenuConnexion extends javax.swing.JFrame {
     }//GEN-LAST:event_caseNomIDActionPerformed
 
     private void BtnConnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConnexionActionPerformed
-        // TODO add your handling code here:
-        String nomID = caseNomID.getText();
+        String email = caseNomID.getText();
         char [] Mdp = caseMdp.getPassword();
+        String password = new String(Mdp);
             ConnectPostgreSQL connection = new ConnectPostgreSQL();
-            Connection conn = connection.getcon();
-            System.out.print(conn);
-
-
+            MembreRepository membreRepo = new MembreRepository(connection.getcon());
+            Map<String, String> Data = membreRepo.getConnectionData(email);
+            String php_pass = Data.get("password");
 
     }//GEN-LAST:event_BtnConnexionActionPerformed
 

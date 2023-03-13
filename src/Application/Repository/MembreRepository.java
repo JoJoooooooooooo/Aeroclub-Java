@@ -4,7 +4,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import Application.Entity.Membre;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MembreRepository {
     private Connection connection;
@@ -172,6 +175,29 @@ public class MembreRepository {
         int rowsUpdated = statement.executeUpdate();
         statement.close();
         return rowsUpdated > 0;
+    }
+    
+    
+    public Map<String, String> getConnectionData(String email) {
+        String query = "SELECT email, password FROM membres WHERE email = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, email);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    String emailF = rs.getString("email");
+                    String password = rs.getString("password");
+                    Map<String, String> map = new HashMap<String, String>();
+                    map.put("email", emailF);
+                    map.put("password", password);
+                    return map;
+                } else {
+                    return null;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Error reading member: " + e.getMessage());
+            return null;
+        }
     }
     
 
