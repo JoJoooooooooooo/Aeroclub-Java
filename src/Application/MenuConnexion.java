@@ -193,6 +193,7 @@ public class MenuConnexion extends javax.swing.JFrame {
         char [] Mdp = caseMdp.getPassword();
             ConnectPostgreSQL connection = new ConnectPostgreSQL();
             Connection conn = connection.getcon();
+            System.out.print(conn);
 
 
     }//GEN-LAST:event_BtnConnexionActionPerformed
