@@ -77,7 +77,7 @@ public class MenuConnexion extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Nom d'utilisateur :");
+        jLabel2.setText("E-mail");
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
@@ -94,6 +94,11 @@ public class MenuConnexion extends javax.swing.JFrame {
         caseMdp.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
 
         BtnConnexion.setText("Connexion");
+        BtnConnexion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnConnexionMouseClicked(evt);
+            }
+        });
         BtnConnexion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnConnexionActionPerformed(evt);
@@ -196,6 +201,7 @@ public class MenuConnexion extends javax.swing.JFrame {
             System.out.print(conn);
 
 
+
     }//GEN-LAST:event_BtnConnexionActionPerformed
 
     private void BtnQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnQuitterActionPerformed
@@ -207,6 +213,11 @@ public class MenuConnexion extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_BtnQuitterMouseClicked
+
+    private void BtnConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnConnexionMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_BtnConnexionMouseClicked
 
     /**
      * @param args the command line arguments
