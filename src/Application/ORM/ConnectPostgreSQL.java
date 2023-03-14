@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Application;
+package Application.ORM;
 
 
 import java.sql.*;
@@ -24,7 +24,7 @@ public class ConnectPostgreSQL {
      *
      * @param args
      */
-    public ConnectPostgreSQL() {
+        public ConnectPostgreSQL() {
         try {
             String url = "jdbc:postgresql://192.168.77.115:5432/aeroclub";
             Properties props = new Properties();

@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Application.Classes;
-
-
+package Application.Controller;
 
 /**
  *
  * @author leo.sauvage
  */
-public class PasswordHasher {
+public class defaultController {
     
-   
+    
+    
+    
+    
 }

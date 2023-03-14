@@ -4,13 +4,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Application;
+package Application.View;
 
+import Application.ORM.ConnectPostgreSQL;
 import Application.Repository.MembreRepository;
 import at.favre.lib.crypto.bcrypt.BCrypt;
-import java.nio.charset.StandardCharsets;
 import java.util.Map;
-import static java.util.Objects.hash;
 
 
 /**
@@ -203,7 +202,10 @@ public class MenuConnexion extends javax.swing.JFrame {
             MembreRepository membreRepo = new MembreRepository(connection.getcon());
             Map<String, String> Data = membreRepo.getConnectionData(email);
             String php_pass = Data.get("password");
-
+            BCrypt.Result result = BCrypt.verifyer().verify(Mdp, php_pass);
+            boolean passwordMatch = result.verified;
+            
+            
     }//GEN-LAST:event_BtnConnexionActionPerformed
 
     private void BtnQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnQuitterActionPerformed
