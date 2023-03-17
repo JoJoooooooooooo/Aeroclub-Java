@@ -1,24 +1,23 @@
+
+import Application.Controller.defaultController;
+import Application.View.Accueil;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Application.Controller;
-
-import Application.View.connexion;
 
 /**
  *
  * @author leo.sauvage
  */
-public class defaultController {
+public class App {
+        
+    public App() {}
     
-    
-    static public void run() {
-        new connexion();
+    public static void main(String args[]) {
+        defaultController.run();
     }
     
-    
-    
-    
-}
+}   
